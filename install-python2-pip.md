@@ -1,4 +1,4 @@
-# Installing python2 with pip on Ubuntu in 2021
+# Installing pip for python2 on Ubuntu in 2021
 
 Ubuntu still seems to have a package/command called `python2`, but all the python2-* packages have been removed
 from the repos. Here's what I had to do to get this working (why did I need python2? because [wikiteam](https://github.com/WikiTeam/wikiteam)
