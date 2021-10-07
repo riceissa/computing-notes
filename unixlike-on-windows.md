@@ -12,6 +12,13 @@ some friction too like alt-tabbing didn't work quite well. There was also some s
 Also font size is pretty small because of some monitor resolution stuff that I couldn't figure out. But this isn't such a big problem
 in the end because I could just increase the terminal font size. This was a problem for all the virtualization options.
 
+# Git-Bash
+
+This works pretty well, and I still use this in parallel with WSL1. However, it's not really a full Linux experience -- even
+some basic programs like `make` are not available. There's a way to install more packages by installing MSYS2 MinGW, and I
+actually did this and tried installing tmux. Tmux did kind of work, but then whenever I tried to load a config file it would
+crash. So I gave up trying to make this a fancy Linux environment, and decided to have Git-Bash + a more fancy thing (currently WSL1).
+
 # Hyper-V
 
 I tried this a bit but it was lagging very noticeably. Apparently there's a fix but it only works on LTS or something, so I gave up.
