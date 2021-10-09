@@ -6,9 +6,10 @@ WSL terminal's color settings are seriously confusing. First, it only shows you 
 
 But then, without any explanation, it also has this block of 16 colors below:
 
-![image](https://user-images.githubusercontent.com/1450515/136670636-33593031-7b7b-424b-89c0-014f5f218d25.png)
+![image](https://user-images.githubusercontent.com/1450515/136671272-4295c759-cb25-466b-8e79-29c493a1e167.png)
 
-(not the original colors, sorry, I had already been messing with the palette quite a bit by this point)
+(not the original colors, sorry, I had already been messing with the palette quite a bit by this point;
+these are my final colors after going through the process below)
 
 It turns out that by changing the colors in these 16 boxes, you can change the terminal colors for things
 other than the basic foreground and background.
