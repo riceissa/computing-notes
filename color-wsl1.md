@@ -14,6 +14,7 @@ It turns out that by changing the colors in these 16 boxes, you can change the t
 other than the basic foreground and background.
 
 But here's the second confusing thing: the colors there don't seem to just be in the order 0,...,15.
+Instead, the order seems to be: 0, 4, 2, 6, 1, 5, 3, 7, 8, 12, 10, 14, 9, 13, 11, 15.
 
 The following will print the 16 basic terminal colors;
 see [here](https://en.wikipedia.org/wiki/ANSI_escape_code#3-bit_and_4-bit) for color codes and
