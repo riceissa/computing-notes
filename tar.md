@@ -10,6 +10,9 @@ On the computer that has the git repo:
 tar -cvpzf archive.tar.gz directory-name/
 ```
 
+Above, `archive.tar.gz` is supposed to be a new filename; it's the destination.
+On the other hand, `directory-name/` is the existing directory to tar up.
+
 On the new computer:
 
 ```
