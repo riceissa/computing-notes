@@ -23,9 +23,13 @@ crash. So I gave up trying to make this a fancy Linux environment, and decided t
 
 I tried this a bit but it was lagging very noticeably. Apparently there's a fix but it only works on LTS or something, so I gave up.
 
+I think this is basically like VMWare but worse.
+
 # Virtualbox
 
 I tried this a bit but it couldn't detect my window size and I think it was also slow.
+
+I think this is basically like VMWare but worse.
 
 # WSL1
 
