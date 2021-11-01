@@ -1,0 +1,21 @@
+## Moving a git repo from one computer to another (while also preserving messy state of directory)
+
+The use-case here is that I have a git repo with a bunch of uncommitted files/scratch work/private credentials that I can't commit,
+and I want to just transfer over this entire state of the directory without doing something like a git-pull from the new
+computer followed by a separate step of copying over all the uncommitted files.
+
+On the computer that has the git repo:
+
+```
+tar -cvpzf archive.tar.gz directory-name/
+```
+
+On the new computer:
+
+```
+tar -xvpzf archive.tar.gz
+```
+
+(I'm not sure the `-p` flag does anything when extracting.
+There's also a `--same-owner` flag that can be passed when extracting,
+but I didn't need to use this to get what I want.)
