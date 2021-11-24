@@ -1,5 +1,7 @@
 # How to start a SOCKS proxy using ssh and connect to it using Firefox
 
+## Set up the proxy
+
 On your local machine (not on the VPS), run:
 
 ```
@@ -17,6 +19,7 @@ Some flags that are sometimes recommended on guides but don't seem to be necessa
 * `-C`: this just compresses the data. The man page says "will only slow down things on fast networks". I'm not
   sure I've noticed any difference.
 
+## Firefox options
 
 Now in Firefox, go to `about:preferences` in the URL bar.
 Search "network" to find the Network Settings, then click Settings.
@@ -33,3 +36,26 @@ Then click OK. Try going to a site like https://whatismyipaddress.com/ to verify
 
 To stop the proxy, just process ctrl-c in the shell. Now if you reload a page in Firefox, you should get a connection error.
 Once the proxy has been stopped, go back into Firefox network settings and switch back to "Use system proxy settings".
+
+## Windows options
+
+Alternatively, instead of entering the proxy info into Firefox, it's possible to do this at the OS level.
+This alternative method will also work for other apps.  This is especially useful for Chrome, since
+Chrome doesn't offer an option for entering proxy info.
+
+The steps I used that work are from [here](https://www.reddit.com/r/techsupport/comments/4j0l35/windows_10_route_all_traffic_through_socks5_proxy/d333zxc/):
+
+* Open Control Panel (not Settings!)
+* Network and Internet -> Internet Options
+* A window will pop up. Now go to the Connections tab.
+* Click "LAN settings" button; this will open another popup.
+* Check the box that says "Use a proxy server for your LAN"
+* Click Advanced; this will open yet another popup.
+* Enter info in Socks, but leave the others blank. (You may need to uncheck "Use the same proxy server for all protocols" first.) It should look like this:
+
+  ![image](https://user-images.githubusercontent.com/1450515/143207129-9fde4a05-42a2-42f0-b265-21d908b628b3.png)
+
+* Click OK close this window.
+* Click OK again to close the previous window.
+* Click OK yet again.
+* Now try going to a site like https://whatismyipaddress.com/ to verify it worked.
