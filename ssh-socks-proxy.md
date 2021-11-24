@@ -51,7 +51,9 @@ The steps I used that work are from [here](https://www.reddit.com/r/techsupport/
 * Click "LAN settings" button; this will open another popup.
 * Check the box that says "Use a proxy server for your LAN"
 * Click Advanced; this will open yet another popup.
-* Enter info in Socks, but leave the others blank. (You may need to uncheck "Use the same proxy server for all protocols" first.) It should look like this:
+* Enter info in Socks, but leave the others blank.
+ (You may need to uncheck "Use the same proxy server for all protocols" first.)
+ It should look like this:
 
   ![image](https://user-images.githubusercontent.com/1450515/143207129-9fde4a05-42a2-42f0-b265-21d908b628b3.png)
 
@@ -59,3 +61,7 @@ The steps I used that work are from [here](https://www.reddit.com/r/techsupport/
 * Click OK again to close the previous window.
 * Click OK yet again.
 * Now try going to a site like https://whatismyipaddress.com/ to verify it worked.
+
+When you're done, just uncheck "Use a proxy server for your LAN" in the LAN settings.
+The next time you do this, Windows will remember the previous settings
+so you'll just need to toggle this check box.
