@@ -1,6 +1,6 @@
 # Setting up MySQL on WSL1
 
-(i forgot to record the steps for the initial setup; do this later)
+(i forgot to record the steps for the initial setup; do this later. i remember that i had to do something like log in as root and then grant access to my user.)
 
 For some reason, MySQL is not automatically started every time I start up the WSL console. I have to run the following to start MySQL:
 
