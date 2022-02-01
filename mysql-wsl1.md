@@ -23,3 +23,10 @@ sudo /etc/init.d/mysql start
 ```
 
 Verify that the error no longer appears when starting MySQL.
+
+
+to get mysql to start automatically, i'm trying out the following command which i found [here](https://askubuntu.com/a/416312):
+
+```
+sudo update-rc.d mysql defaults
+```
