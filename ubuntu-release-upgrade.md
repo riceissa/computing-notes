@@ -24,3 +24,6 @@ Begin the release upgrade:
 ```
 sudo do-release-upgrade
 ```
+
+Note that even for the same release number, the LTS release is delayed
+compared to the normal release (see [here](https://askubuntu.com/a/1403657/258410) for details).
