@@ -7,8 +7,11 @@ just get killed, and a lot of implicit state one may have wanted
 to preserve gets destroyed.  (However, apparently this is only
 the default on some machines?  I know someone who uses Windows 10
 and who hasn't done special configuration who has never had to deal
-with this issue.)
+with this issue.)  Even more infuriatingly, it is not possible to
+turn this behavior off using the Settings app.
 
+I managed to eventually consistently get Windows to stop rebooting
+after an update.
 I believe it was [this method](https://www.reddit.com/r/Windows10/comments/qtb1cr/ive_tried_everything_to_disable_automatic/hki9k0r/)
 that finally did the trick. Full steps:
 
