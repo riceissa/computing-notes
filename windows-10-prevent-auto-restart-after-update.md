@@ -24,3 +24,6 @@ With the above setting enabled, Windows will show an orange
 'you have an update you need to install, and this will reboot the computer'
 (I forget the exact wording) icon show up in the notifications panel
 whenever an update is available, so one can update+reboot when one chooses.
+
+[This comment](https://www.reddit.com/r/Windows10/comments/qtb1cr/ive_tried_everything_to_disable_automatic/hkjb6iy/)
+has additional toggles, but I haven't had to touch them.
