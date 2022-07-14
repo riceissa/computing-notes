@@ -30,3 +30,5 @@ to get mysql to start automatically, i'm trying out the following command which 
 ```
 sudo update-rc.d mysql defaults
 ```
+
+(this didn't end up working; will have to figure out something else later)
