@@ -11,7 +11,9 @@ with this issue.)  Even more infuriatingly, it is not possible to
 turn this behavior off using the Settings app.
 
 I managed to eventually consistently get Windows to stop rebooting
-after an update.
+after an update (ETA: this worked pretty well for a while but Windows
+will apparently still reboot the machine if I don't manually reboot it
+within a day or two of the update).
 I believe it was [this method](https://www.reddit.com/r/Windows10/comments/qtb1cr/ive_tried_everything_to_disable_automatic/hki9k0r/)
 that finally did the trick. Full steps:
 
