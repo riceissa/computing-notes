@@ -1,4 +1,4 @@
-# Auto-starting MySQL on WSL2 in Windows 10
+# Automatically starting MySQL on WSL2 in Windows 10 whenever WSL starts up
 
 After trying a bunch of solutions I found online, the only one that worked is to add the following to my `~/.bashrc`:
 
