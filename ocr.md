@@ -14,6 +14,7 @@ ocrmypdf -l eng --rotate-pages --deskew --title "title of your book - list of au
 ```
 
 WARNING: ocrmypdf can use up _a lot_ of space depending on how many pages are in the PDF.
+(When I ran into problems, it ate up like 18GB of diskspace on like 300 pages/500MB of input.)
 It doesn't work in a "stream-like" way where each page is processed individually. Instead,
 it creates tons of temporary files in `/tmp` or wherever and doesn't delete any of it
 until the final PDF is ready.  You can set the tempdir using
