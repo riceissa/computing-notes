@@ -10,5 +10,5 @@ ls
 img2pdf *.jpg --output combined.pdf
 
 # now OCR the pdf
-ocrmypdf -l eng --rotate-pages --deskew --title "title of your book" combined.pdf combined_ocr.pdf 
+ocrmypdf -l eng --rotate-pages --deskew --title "title of your book - list of authors" combined.pdf combined_ocr.pdf 
 ```
