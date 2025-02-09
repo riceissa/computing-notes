@@ -10,7 +10,7 @@ ls
 img2pdf *.jpg --output combined.pdf
 
 # now OCR the pdf
-ocrmypdf -l eng --rotate-pages --deskew --title "title of your book - list of authors" combined.pdf combined_ocr.pdf 
+ocrmypdf -l eng --rotate-pages --deskew --title "title of the book (year) - list of authors" combined.pdf combined_ocr.pdf 
 ```
 
 WARNING: ocrmypdf can use up _a lot_ of space depending on how many pages are in the PDF.
