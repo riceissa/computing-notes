@@ -38,3 +38,5 @@ exit
 Now the `.vhdx` file should have shrunk by quite a bit.
 
 When I ran this on 2025-03-13, the size went from around 40GB to around 30GB.
+Then I used ncdu inside of WSL to find and delete files I didn't need, and then re-ran
+the diskpart stuff above, and the vhdx file shrunk to 15.8GB. Much better!
