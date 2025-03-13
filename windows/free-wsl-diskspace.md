@@ -2,7 +2,8 @@
 
 WSL automatically grows the disk image file when files are created inside of WSL,
 but when files are deleted inside of WSL, it does not automatically shrink the
-disk image file. See https://askubuntu.com/a/1363021
+disk image file. See <https://askubuntu.com/a/1363021>. This can lead to huge disk image
+file sizes, and the space isn't even being used for anything!
 
 However, it is possible to manually shrink the disk image file.
 
