@@ -28,7 +28,7 @@ This will pop up a new command-prompt window for diskpart.
 Now type:
 
 ```
-select vdisk file="C:\WSL-Distros\…\ext4.vhdx"
+select vdisk file="C:\location\of\your\vhdx\file"
 attach vdisk readonly
 compact vdisk
 detach vdisk
