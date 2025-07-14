@@ -1,6 +1,6 @@
 # Vim
 
-By default in Vim (not Neovim), using `:set spell` and then `zg` on a misspelled word to
+By default in Vim (as well as Neovim), using `:set spell` and then `zg` on a misspelled word to
 attempt to add it to the spell file brings up the following error:
 
 ```
