@@ -32,8 +32,12 @@ The problem, it turns out, is that if `~/.vim` does not exist, then Vim won't
 create _that_ directory, although if `~/.vim` _does_ exist, then Vim will create
 `~/.vim/spell`.
 
-So the better solution to solving the spell file problem is simply:
+So the better solution to solving the spell file problem (instead of following
+the error message's advice and setting the `spellfile` option) is simply:
 
 ```bash
 mkdir ~/.vim
 ```
+
+Now doing `zg` will name and create the spellfile automatically and will add
+the misspelled word to the list of known words.
