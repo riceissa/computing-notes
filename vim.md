@@ -11,7 +11,8 @@ sudo dnf install vim-X11
 ```
 
 (In particular, don't install `vim-enhanced`, which is the package that gets
-recommended when you type `vim` in the command-line without having Vim installed.)
+recommended when you type `vim` in the command-line without having Vim installed.
+It does _not_ have clipboard support.)
 
 Now Vim can be run using the command `vimx`. I found this annoying, as on
 Debian-based systems I am used to just typing `vim` to get the clipboard-enabled
