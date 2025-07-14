@@ -1,5 +1,36 @@
 # Vim
 
+## Vim on Fedora
+
+I prefer using the terminal Vim rather than GVim. However, I still want Vim with
+clipboard support enabled. On Fedora, the terminal Vim with clipboard support
+can be installed via:
+
+```bash
+sudo dnf install vim-X11
+```
+
+(In particular, don't install `vim-enhanced`, which is the package that gets
+recommended when you type `vim` in the command-line without having Vim installed.)
+
+Now Vim can be run using the command `vimx`. I found this annoying, as on
+Debian-based systems I am used to just typing `vim` to get the clipboard-enabled
+terminal Vim. To fix this, I created a symlink:
+
+```bash
+sudo ln -sv /usr/bin/vimx /usr/bin/vim
+```
+
+I tried using a Bash alias at first, but this turned out to not work well
+because certain programs don't use Bash aliases so couldn't find a command
+named `vim`. For example, `crontab -e` seems to use plain sh so complains with
+the following if you use the alias approach:
+
+```
+/bin/sh: line 1: vim: command not found
+crontab: "vim" exited with status 127
+```
+
 ## spellfile not set
 
 By default in Vim (as well as Neovim), using `:set spell` and then `zg` on a misspelled word to
