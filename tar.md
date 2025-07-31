@@ -22,3 +22,9 @@ tar -xvpzf archive.tar.gz
 (I'm not sure the `-p` flag does anything when extracting.
 There's also a `--same-owner` flag that can be passed when extracting,
 but I didn't need to use this to get what I want.)
+
+For tar-ing up a whole bunch of directories separately, something like the following works nicely:
+
+```bash
+for $dir in *; do echo tar -cpzf $dir.tar.gz $dir; done
+```
