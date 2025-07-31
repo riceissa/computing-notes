@@ -1,10 +1,14 @@
 ## Installing fzf for Bash
 
+### New, better way (for new versions of fzf)
+
 On newer versions of fzf, just add this line to `~/.bashrc`:
 
 ```bash
 eval "$(fzf --bash)"
 ```
+
+### Old way (for older versions of fzf)
 
 On older versions of fzf, you must find the location of the `key-bindings.bash` file:
 
