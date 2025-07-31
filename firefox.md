@@ -21,12 +21,14 @@ extensions that have a "Recommended" status in Firefox.
 ## Custom keyword search
 
 Firefox has two places to add keyword searches. One of them is in the settings,
-and it's easier to use but does not allow quoted (URL-encoded) strings.
-The other one is to add it via a bookmark.
+and it's easier to use but does not allow unquoted (non-URL-encoded) strings.
+The other option is to add it via a bookmark.
 
 The ones with `%s` below can be added via settings, but the ones with `%S` only
-work in the bookmarks (because the input string must be URL-encoded in order
+work in the bookmarks (because the input string must _not_ be URL-encoded in order
 to work).
+
+Add these via Settings → Search Shortcuts:
 
 ```
 !w
@@ -37,7 +39,11 @@ https://www.amazon.com/s?k=%s
 
 !r
 https://www.google.com/search?q=site%3Areddit.com+%s
+```
 
+Add these via bookmarks:
+
+```
 !ia
 https://web.archive.org/web/*/%S
 
