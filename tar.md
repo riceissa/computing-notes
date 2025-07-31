@@ -28,3 +28,6 @@ For tar-ing up a whole bunch of directories separately, something like the follo
 ```bash
 for $dir in *; do echo tar -cpzf $dir.tar.gz $dir; done
 ```
+
+The missing `-v` flag so that you can actually notice the error messages, if there are any.
+
