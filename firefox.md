@@ -17,6 +17,8 @@ extensions that have a "Recommended" status in Firefox.
 * "Open previous windows and tabs" → change to true
 * "Ctrl+Tab cycles through tabs in recently used order" → change to true
 * "Choose your preferred language for displaying pages" → add Japanese to the list. This makes it so that kanji do not use the Chinese variants.
+* "Always ask you where to save files" → change to true
+* "Always show scrollbars" → change to true
 
 ## Custom keyword search
 
