@@ -570,7 +570,7 @@ Tab-completing in command mode in Vim by default shows matches horizontally,
 meaning only a few matches can be shown on the screen. Having 'pum' in the
 following option makes matches be displayed vertically instead (just like in
 insert mode), allowing more matches to be shown. Including 'tagfile' shows
-the kind and location of tag when doing :tag <Ctrl-D> which seems helpful,
+the kind and location of tag when doing `:tag <Ctrl-D>` which seems helpful,
 but I mostly only included it because it's included by default in Neovim.
 
 ```vim
