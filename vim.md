@@ -581,6 +581,10 @@ else
 endif
 ```
 
+Patch 8.2.4325 is the patch in Vim where `pum` became available; before that
+version, Vim gives an error message if you try to set wildoptions with pum.
+See `:help patches-9` in Vim and then search for "4325".
+
 ## Make the escape key more responsive
 
 ```vim
