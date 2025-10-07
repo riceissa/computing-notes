@@ -683,3 +683,15 @@ let &ft = &ft
 Telling Neovim to re-register the filetype of the current buffer
 for some reason brings back the markup! I hope this will be fixed
 in future versions so that this kind of hack is not needed.
+
+## Why `set nocompatible`
+
+I source defaults.vim, so in most situations I don't need to set nocompatible.
+But Debian-based systems use vim-tiny by default, which doesn't have the +eval
+feature. So the line that sources defaults.vim is never run. This means that
+later on in the file, when I use some backslash escapes for line continuation,
+Vim complains about syntax errors. Now, I don't really want to support vim-tiny,
+as I don't really expect to use it much. But I at least don't want my vimrc
+to throw a bunch of warnings if my vimrc happens to get sourced by vim-tiny.
+So that's why I've decided to add that extra line to force nocompatible
+at the start of my vimrc, even though it's included in defaults.vim.
