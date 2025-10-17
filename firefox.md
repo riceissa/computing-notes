@@ -41,6 +41,9 @@ https://www.amazon.com/s?k=%s
 
 !r
 https://www.google.com/search?q=site%3Areddit.com+%s
+
+!yt
+https://www.youtube.com/results?search_query=%s
 ```
 
 Add these via bookmarks:
