@@ -630,26 +630,34 @@ loaded by default.
 The `silent!` is to prevent error messages from being displayed in
 older versions of Vim that don't have these plugins.
 
-## Default theme in Neovim
+## Picking separate light and dark themes
 
-I find the new default Neovim light theme to be too low-contrast and
-feel like all the colors blend together making it hard to distinguish
-different parts of the syntax, but I like the new default dark theme. So
-toggle some options whenever the background color changes.
+I like to use a light terminal during the day and a dark terminal
+at night. My OS has a global light/dark switch. Is there a way to get
+Vim to respect this, and automatically switch themes based on the OS theme?
+
+Here is the only way I've figured out how to do this. It only works with
+the combination of kitty as the terminal and Neovim as the Vim variant.
+
+Add an autocommand like the following:
 
 ```vim
-if has('nvim-0.10')
-  autocmd OptionSet background
-    \   if &background ==# 'light'
-    \ |   colorscheme vim
-    \ |   set notermguicolors
-    \ | else
-    \ |   colorscheme default
-    \ |   set termguicolors
-    \ | endif
-    \ | let &ft = &ft
-endif
+autocmd OptionSet background
+  \   if &background ==# 'light'
+  \ |   colorscheme vim
+  \ |   set notermguicolors
+  \ | else
+  \ |   colorscheme default
+  \ |   set termguicolors
+  \ | endif
+  \ | let &ft = &ft
 ```
+
+And also make sure that you do _not_ have a bare `set background` anywhere else
+in your vimrc (having this seems to confuse Neovim and it will not try to touch
+the `background` option ever again). The `termguicolors` is just because I
+prefer the default Vim theme without termguicolors, but I prefer the default
+Neovim theme with termguicolors.
 
 The `let &ft = &ft` might seem absurd, but it's a hack to prevent
 italics and bold from disappearing from markup files.
