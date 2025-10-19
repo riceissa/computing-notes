@@ -630,7 +630,7 @@ loaded by default.
 The `silent!` is to prevent error messages from being displayed in
 older versions of Vim that don't have these plugins.
 
-## Picking separate light and dark themes
+## Picking separate light and dark themes with automatic switching based on OS theme
 
 I like to use a light terminal during the day and a dark terminal
 at night. My OS has a global light/dark switch. Is there a way to get
@@ -658,6 +658,12 @@ in your vimrc (having this seems to confuse Neovim and it will not try to touch
 the `background` option ever again). The `termguicolors` is just because I
 prefer the default Vim theme without termguicolors, but I prefer the default
 Neovim theme with termguicolors.
+
+The only downside I've observed is that if you start Neovim with certain filetypes
+(like `.vim` files), then in light mode there is a slight flicker where the screen
+is black for a split second and then becomes the correct light color. But starting
+Neovim with just `nvim` (without filename) or opening other filetypes (like C files)
+doesn't have this problem. I don't know what's special about the `.vim` files.
 
 The `let &ft = &ft` might seem absurd, but it's a hack to prevent
 italics and bold from disappearing from markup files.
