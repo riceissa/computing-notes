@@ -700,9 +700,10 @@ in future versions so that this kind of hack is not needed.
 
 ## Why `set nocompatible`
 
-I source defaults.vim, so in most situations I don't need to set nocompatible.
+When Vim detects the presence of a vimrc file, it automatically sets nocompatible.
+So in most situations I don't need to manually set nocompatible in my vimrc.
 But Debian-based systems use vim-tiny by default, which doesn't have the +eval
-feature. So the line that sources defaults.vim is never run. This means that
+feature. And in such a case, compatible gets set. This means that
 later on in the file, when I use some backslash escapes for line continuation,
 Vim complains about syntax errors. Now, I don't really want to support vim-tiny,
 as I don't really expect to use it much. But I at least don't want my vimrc
