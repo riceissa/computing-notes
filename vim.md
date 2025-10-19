@@ -49,16 +49,19 @@ set viminfo&
 Second, Fedora's `/etc/vimrc` has a broken implementation of
 `:help restore-cursor` that does not check whether the buffer is a git commit window,
 which means that if you try to write a commit message, your cursor might be in
-a random spot in the file. So I clear out the augroup that contains this
+a random spot in the file. So I delete this
 autocommand. A working implementation is already in `defaults.vim` which ships
 with Vim, so I don't know why they decided that adding it in again was a good
 idea.
 
 ```vim
-if exists('#fedora')
-  autocmd! fedora
+if exists('#fedora#BufReadPost *')
+  autocmd! fedora BufReadPost *
 endif
 ```
+
+I submitted a bug report here: <https://bugzilla.redhat.com/show_bug.cgi?id=2404651>
+and hopefully it will be fixed soon.
 
 ## spellfile not set
 
@@ -185,7 +188,7 @@ different editing sessions. So for now, I will just turn on 'hidden'.
 In my vimrc, I have the following:
 
 ```vim
-if has('clipboard')
+if has('clipboard') && (v:version > 703 || (v:version == 703 && has('patch074')))
   set clipboard^=unnamedplus
 endif
 ```
@@ -257,11 +260,23 @@ By default in Vim the mouse does not work at all. I like to do:
 
 ```vim
 if has('mouse')
-  set mouse=nv
+  set mouse=nvi
 endif
 ```
 
-so that the mouse works in normal mode and visual mode.
+so that the mouse works in normal, visual, and insert mode.
+I should explain the insert mode part, since people who have read
+_Practical Vim_ will know about the "go back to normal mode when you
+pause your thoughts" idea: if you're reaching for the mouse, then
+haven't you by definition paused the thought you had while typing,
+in order to do something else? That's what I thought for a long time,
+but then I encountered a situation where I was typing something, but
+then as I was typing, I had the man page open in a separate tab, and
+wanted to look something up. I could have exited insert mode, but
+I had instinctively reached for the mouse to scroll a bit in the man
+page split, and was surprised to find the screen didn't scroll, and
+instead my cursor moved! So that experience convinced me that having
+`i` in the `mouse` option is actually useful.
 
 However, even after turning the mouse on, mouse dragging will not
 work as expected in Vim under tmux. When you release the mouse,
@@ -279,19 +294,19 @@ endif
 My final mouse configuration looks like this:
 
 ```vim
+silent! while 0
+  silent! set mouse=nvi
+silent! endwhile
 if has('mouse')
-  set mouse=nv
+  set mouse=nvi
   if !has('nvim') && exists('$TMUX')
     set ttymouse=xterm2
   endif
 endif
 ```
 
-## Restore cursor in Neovim
-
-Vim has a restore-cursor autocommand in `defaults.vim`, but Neovim does
-not ship with such an autocommand. They do list it in the help files
-though. I just copy the version in `:help restore-cursor`.
+(The `silent! while 0` and `if 1` are for doing conditional action based on whether
+Vim was compiled with `+eval` or not.)
 
 ## Rust textwidth
 
