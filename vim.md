@@ -381,15 +381,19 @@ and I even like it better, but when editing
 markup files like Markdown, it's nice to not have to constantly think about
 what is a visual vs logical line.
 
-In visual line and visual block modes, I also always want to move by
-logical lines, so I check for those as well.
+In visual line and visual block modes, as well as in the quickfix window,
+I also always want to move by logical lines, so I check for those as well.
 
 ```vim
-nnoremap <expr> j v:count > 0 ? 'j' : 'gj'
-nnoremap <expr> k v:count > 0 ? 'k' : 'gk'
-xnoremap <expr> j mode() ==# 'V' \|\| mode() ==# "\<C-V>" \|\| v:count > 0 ? 'j' : 'gj'
-xnoremap <expr> k mode() ==# 'V' \|\| mode() ==# "\<C-V>" \|\| v:count > 0 ? 'k' : 'gk'
+if 1
+  nnoremap <expr> j v:count > 0 \|\| &filetype ==# 'qf' ? 'j' : 'gj'
+  nnoremap <expr> k v:count > 0 \|\| &filetype ==# 'qf' ? 'k' : 'gk'
+  xnoremap <expr> j mode() ==# 'V' \|\| mode() ==# "\<C-V>" \|\| v:count > 0 ? 'j' : 'gj'
+  xnoremap <expr> k mode() ==# 'V' \|\| mode() ==# "\<C-V>" \|\| v:count > 0 ? 'k' : 'gk'
+endif
 ```
+
+The `if 1` is because `<expr>` mappings don't work in vim-tiny.
 
 ## Visual star search for Vim
 
@@ -441,20 +445,8 @@ run into weird issues when repeating the search in a different direction. As
 a bonus, doing visual star on a long visual selection won't prompt us to
 press enter.
 
-```vim
-if !has('nvim')
-  function! s:VisualStarSearch()
-    let temp = @s
-    normal! gv"sy
-    let search = '\V' . substitute(escape(@s, '\'), '\n', '\\n', 'g')
-    call setreg('/', search)
-    call histadd('/', search)
-    let @s = temp
-  endfunction
-  xnoremap * :<C-U>call <SID>VisualStarSearch()<CR>/<CR>
-  xnoremap # :<C-U>call <SID>VisualStarSearch()<CR>?<CR>
-endif
-```
+My implementation is here:
+<https://github.com/riceissa/dotfiles/blob/5b324dd55d05df287001873f550e833ecfbdebb1/.vimrc#L121-L135>
 
 ## Why no `c_comment_strings`
 
@@ -524,14 +516,23 @@ inoremap <C-A> <C-O>^
 inoremap <C-X><C-A> <C-A>
 cnoremap <C-A> <Home>
 cnoremap <C-X><C-A> <C-A>
-inoremap <expr> <C-E> col(".") >= col("$") ? "<C-E>" : "<End>"
-inoremap <expr> <C-F> col(".") >= col("$") ? "<C-F>" : "<Right>"
-cnoremap <expr> <C-F> getcmdpos() > strlen(getcmdline()) ? &cedit : "<Right>"
 inoremap <C-B> <Left>
 cnoremap <C-B> <Left>
-inoremap <expr> <C-D> col(".") >= col("$") ? "<C-D>" : "<Del>"
-cnoremap <expr> <C-D> getcmdpos() > strlen(getcmdline()) ? "<C-D>" : "<Del>"
+silent! while 0
+  inoremap <C-D> <Del>
+  inoremap <C-E> <End>
+  inoremap <C-F> <Right>
+silent! endwhile
+if 1
+  inoremap <expr> <C-D> col(".") >= col("$") ? "<C-D>" : "<Del>"
+  cnoremap <expr> <C-D> getcmdpos() > strlen(getcmdline()) ? "<C-D>" : "<Del>"
+  inoremap <expr> <C-E> col(".") >= col("$") ? "<C-E>" : "<End>"
+  inoremap <expr> <C-F> col(".") >= col("$") ? "<C-F>" : "<Right>"
+  cnoremap <expr> <C-F> getcmdpos() > strlen(getcmdline()) ? &cedit : "<Right>"
+endif
 ```
+
+`<expr>` mappings don't work in vim-tiny so I give alternative fallback options.
 
 ## Markdown underscores
 
