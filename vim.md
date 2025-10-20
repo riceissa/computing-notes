@@ -750,11 +750,16 @@ in future versions so that this kind of hack is not needed.
 
 When Vim detects the presence of a vimrc file, it automatically sets nocompatible.
 So in most situations I don't need to manually set nocompatible in my vimrc.
-But Debian-based systems use vim-tiny by default, which doesn't have the +eval
-feature. And in such a case, compatible gets set. This means that
-later on in the file, when I use some backslash escapes for line continuation,
-Vim complains about syntax errors. Now, I don't really want to support vim-tiny,
+But Debian-based systems use vim-tiny by default, which lacks many of the
+features of normal Vim (like `+eval`) and also sets `compatible` by default.
+This means in particular that they include the `C` option in `cpoptions`,
+which disallows backslash line continuation. Since I use backslash line continuation
+in my vimrc, without the `set nocompatible`, the vimrc file will result in errors.
+See `:help E10` for more information.
+
+Now, I don't really want to support vim-tiny,
 as I don't really expect to use it much. But I at least don't want my vimrc
-to throw a bunch of warnings if my vimrc happens to get sourced by vim-tiny.
-So that's why I've decided to add that extra line to force nocompatible
-at the start of my vimrc, even though it's included in defaults.vim.
+to throw a bunch of warnings if my vimrc happens to get sourced by vim-tiny
+before a feature-full Vim version gets installed.
+So that's why I've decided to add that extra line to force `nocompatible`
+at the start of my vimrc, even though it's not necessary in most variants of Vim.
