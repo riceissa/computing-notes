@@ -467,6 +467,12 @@ color than the rest of the comment.
 unlet! c_comment_strings
 ```
 
+I thought not sourcing defaults.vim would mean that I don't need to do this
+anymore in my vimrc, but Fedora's `/etc/vimrc` has the same thing, and
+there is no way to tell Vim to not use the system vimrc (other than aliasing
+the `vim` command to something like `vim -u ~/.vimrc`) so I'll just have
+to keep this.
+
 ## Why `c_no_curly_error`
 
 I came across this one while working through the book Crafting Interpreters.
@@ -484,14 +490,6 @@ more, see `:help ft-c-syntax`.
 
 ```vim
 let c_no_curly_error = 1
-```
-
-## Show number of matches when searching
-
-Neovim has this by default, but in Vim you can do:
-
-```vim
-set shortmess-=S
 ```
 
 ## Why `nostartofline`
