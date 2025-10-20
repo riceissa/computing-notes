@@ -581,13 +581,17 @@ let g:python_indent.closed_paren_align_last_line = v:false
 ## wildoptions
 
 Tab-completing in command mode in Vim by default shows matches horizontally,
-meaning only a few matches can be shown on the screen. Having 'pum' in the
-following option makes matches be displayed vertically instead (just like in
-insert mode), allowing more matches to be shown. Including 'tagfile' shows
+meaning only a few matches can be shown on the screen. Having `pum` in the
+`wildoptions` makes matches be displayed vertically instead (just like in
+insert mode), allowing more matches to be shown. Including `tagfile` shows
 the kind and location of tag when doing `:tag <Ctrl-D>` which seems helpful,
 but I mostly only included it because it's included by default in Neovim.
 
 ```vim
+silent! while 0
+  set wildoptions=tagfile
+  silent! set wildoptions=pum,tagfile
+silent! endwhile
 if has('nvim') || has('patch-8.2.4325')
   set wildoptions=pum,tagfile
 else
@@ -596,8 +600,15 @@ endif
 ```
 
 Patch 8.2.4325 is the patch in Vim where `pum` became available; before that
-version, Vim gives an error message if you try to set wildoptions with pum.
+version, Vim gives an error message if you try to set `wildoptions` with `pum`.
 See `:help patches-9` in Vim and then search for "4325".
+
+The -eval version is a bit weird, but basically, we set `wildoptions` to just
+`tagfile`, because that is always possible. And then, we try to set it to also
+include `pum`, but we do so under `silent!` because if `pum` is not a valid
+value on an older Vim version, we don't want to see an error message for that.
+The end result is that this implements the same logic as the +eval version, but
+in a kind of wacky way.
 
 ## Make the escape key more responsive
 
