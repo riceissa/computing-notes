@@ -661,26 +661,21 @@ if !has('nvim')
 endif
 ```
 
-## EditorConfig, commentary, man.vim
+## File type plugins, syntax highlighting, EditorConfig, commentary, matchit, man.vim
 
 Newer versions of Vim ship with some useful plugins like EditorConfig,
 commentary.vim-like commenting, and a way to browse man pages.
 But even though Vim _ships with_ these plugins, they are not enabled
 by default. So here's how I enable them:
 
-```vim
-if !has('nvim')
-  silent! packadd! editorconfig
-  silent! packadd! comment
-  runtime ftplugin/man.vim
-  set keywordprg=:Man
-endif
-```
+<https://github.com/riceissa/dotfiles/blob/88f1a8c690123e4b83b9c3b3a2ae5df907bc4e65/.vimrc#L5-L23>
 
-The conditional check is because on Neovim, all of these plugins are
+The initial conditional check is because on Neovim, all of these plugins are
 loaded by default.
 
-The `silent!` is to prevent error messages from being displayed in
+The other checks look complicated, but they are just there to only do things
+if they weren't already done by a system vimrc file, and also to
+prevent error messages from being displayed in
 older versions of Vim that don't have these plugins.
 
 ## Picking separate light and dark themes with automatic switching based on OS theme
