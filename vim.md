@@ -558,7 +558,6 @@ autocmd FileType vim setlocal commentstring=\"\ %s
 
 ## Disable vim hints
 
-
 This disables the annoying explanation that pops up every time you press
 Ctrl-f in command mode.
 
@@ -571,13 +570,41 @@ endif
 ## Python indent
 
 I find the default indentation style for lists and dictionaries really
-annoying. See `:help ft-python-indent` for what the following means.
+annoying.
+
+For example, in default Vim/Neovim, lists get indented like this:
+
+```python
+lst = [
+        "a",
+        "b",
+        "c",
+        ]
+```
+
+The following variables will change the indentation settings to make
+lists look like this instead:
+
+```python
+lst = [
+    "a",
+    "b",
+    "c",
+]
+```
+
+See `:help ft-python-indent` for what the following means.
 
 ```vim
 let g:python_indent = {}
 let g:python_indent.open_paren = 'shiftwidth()'
-let g:python_indent.closed_paren_align_last_line = v:false
+if has('patch-7.4.1154')
+  let g:python_indent.closed_paren_align_last_line = v:false
+endif
 ```
+
+Patch 7.4.1154 introduced the `v:false` constant, so before that Vim
+gives an error message.
 
 ## wildoptions
 
