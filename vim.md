@@ -535,7 +535,8 @@ endif
 ## Markdown underscores
 
 Underscores in Markdown files usually mean emphasis, so should not be
-counted as part of the word. This makes searching for emphasized phrases
+counted as part of the word. The following autocommand
+makes searching for emphasized phrases
 work with motions like `*`. For example, if a string like `_hello world_`
 appears in a Markdown document, pressing `*` when the cursor is on the `h`
 would by default search for the string `_hello`. Having the following
