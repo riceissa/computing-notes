@@ -183,6 +183,14 @@ forgotten when it goes out of view! I could probably fix that by setting an
 undofile, but I don't know if I like the idea of persistent undos across
 different editing sessions. So for now, I will just turn on 'hidden'.
 
+In my opinion, the `hidden` option specifies too many things at once that
+are really orthogonal. There's
+"do you want to forget the undo history (and generally unload the buffer, as if you did `:bd`)
+when a buffer becomes invisible?"
+and then there's
+"do you want to be able to make buffers invisible even if they have unsaved changes?"
+
+
 ## Clipboard management
 
 In my vimrc, I have the following:
