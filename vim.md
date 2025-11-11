@@ -606,13 +606,22 @@ See `:help ft-python-indent` for what the following means.
 ```vim
 let g:python_indent = {}
 let g:python_indent.open_paren = 'shiftwidth()'
-if has('patch-7.4.1154')
-  let g:python_indent.closed_paren_align_last_line = v:false
-endif
+let g:python_indent.closed_paren_align_last_line = 0
+let g:pyindent_open_paren = '&sw'
 ```
 
-Patch 7.4.1154 introduced the `v:false` constant, so before that Vim
-gives an error message.
+The documentation uses `v:false` instead of `0` but I've found that this causes an error on older versions of Vim
+from before `v:false` was introduced.  Rather than checking for the exact patch number, and then doing
+something else for older versions of Vim, or something complicated like that, I've decided to just
+use `0` which evaluates to false and produces the same behavior.
+
+The extra line for `g:pyindent_open_paren` is for older versions of Vim that don't use the
+`g:python_indent` dictionary. Having both styles of configuration doesn't seem to confuse
+either newer or older versions of Vim, so instead of checking for a patch number (which is
+not easy, given that updates to Vim runtime files often appear between patches, rather
+than being patches themselves), I have decided to just include both styles of configuration.
+There is no equivalent of `closed_paren_align_last_line` in the older, `g:pyindent_*` style
+of configuration, so that's why there's nothing there in place of it.
 
 ## wildoptions
 
