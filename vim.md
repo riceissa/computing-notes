@@ -871,5 +871,13 @@ configuration. Here I talk about some of the reasons I made this switch.
   like vim-plug, but it won't be in Vim so then my configuration won't be
   compatible across Vim and Neovim. It's just a complete mess.
 
+- I will be slightly less annoyed whenever I need to use a Vim or vi or
+  something that doesn't have my configuration. I'm setting enough options and
+  mappings that if I ever need to use an unconfigured Vim I will notice this
+  pretty much immediately and be pretty annoyed, but plugins tend to add even
+  more complicated functionality that is not easy to replicate in stock Vim, so
+  I would be even more annoyed if I had to use stock Vim after getting used to
+  plugins.
+
 I notice a pattern here where maybe it's fugitive that's the problem; but
 fugitive is also the most useful plugin probably, so it's tricky!
