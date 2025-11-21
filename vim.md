@@ -820,3 +820,56 @@ to throw a bunch of warnings if my vimrc happens to get sourced by vim-tiny
 before a feature-full Vim version gets installed.
 So that's why I've decided to add that extra line to force `nocompatible`
 at the start of my vimrc, even though it's not necessary in most variants of Vim.
+
+## Why no Vim plugins
+
+Starting maybe late 2024, I decided to stop using plugins for Vim. Instead, I
+just have a single vimrc file (currently around 350 lines) with all my
+configuration. Here I talk about some of the reasons I made this switch.
+
+- Supply chain attacks. Most Vim plugins are just repos on GitHub that are
+  maintained by one person, or sometimes a small group of people. Theoretically
+  GitHub could detect if a plugin is compromised, but I don't think GitHub has
+  the resources to be checking these random repos with any regularity. Browser
+  extensions have had issues where random companies buy the rights to the
+  extension and then inject malicious code. Package repos for programming
+  languages (like npm) have had supply chain attacks in recent years. I don't
+  think Vim plugin authors are particularly exceptional compared to these other
+  situations, so it seems like the safest thing to do is to not rely on
+  plugins.
+
+  Even before I stopped using plugins, I had a system in place where I
+  used specific commit hashes of each plugin, so that the plugin couldn't
+  randomly get "upgraded" to some potentially malicious version (but of course,
+  that means that if there's a security issues with a plugin, I won't get that
+  update unless I manually grab the new commit hash).
+
+- Many plugins are kind of janky compared to base Vim. I've had problems with
+  surround, gutentags, and splitjoin in particular, where I like the general
+  thing that the plugin aims to do, but in some weird edge cases I run into
+  problems and I don't really feel like reporting a bug or the project is
+  unmaintained.
+
+  Sometimes, the plugins are essentially/unavoidably janky due to the way Vim
+  exposes functionality to plugin authors (e.g. vim-repeat).
+
+- Lack of respect for user by changing stuff in backwards-incompatible ways.
+  This one mainly applies to fugitive. I got so used to typing `:Gwr` and then
+  suddenly that stopped working and I had to type `:GWr` (with a capital W)
+  instead. Or I was used to typing `:Gst` but then that stopped working and I
+  had to type `:G` instead. (I might be recalling one of these incorrectly, but
+  there was definitely something along these lines.)
+
+- Some plugins work well on Linux but not Windows, or less well on Windows.
+  Due to the way Git works on Windows, fugitive never worked well on Windows so
+  I got into a habit of just using the GitBash terminal for all my git stuff.
+
+- Hassle of managing the installation; needing to get a plugin manager, then
+  install the plugins. And now Vim has its own package system with `:packadd`,
+  but it's even more annoying to use compared to vim-plug. And Neovim is now
+  planning to add an even more advanced package manager that will probably work
+  like vim-plug, but it won't be in Vim so then my configuration won't be
+  compatible across Vim and Neovim. It's just a complete mess.
+
+I notice a pattern here where maybe it's fugitive that's the problem; but
+fugitive is also the most useful plugin probably, so it's tricky!
