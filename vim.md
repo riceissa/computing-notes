@@ -858,7 +858,9 @@ and increase surface area for annoying problems", but in more detail:
 - Lack of respect for user by changing stuff in backwards-incompatible ways.
   This one mainly applies to fugitive. I got so used to typing `:Gwr` and then
   suddenly that stopped working and I had to type `:GWr` (with a capital W)
-  instead. Or I was used to typing `:Gst` but then that stopped working and I
+  instead, and for every single fugitive command I had to remember if there was a capital
+  letter or a lowercase letter.
+  Or I was used to typing `:Gst` but then that stopped working and I
   had to type `:G` instead. (I might be recalling one of these incorrectly, but
   there was definitely something along these lines.)
 
