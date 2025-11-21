@@ -763,6 +763,43 @@ Telling Neovim to re-register the filetype of the current buffer
 for some reason brings back the markup! I hope this will be fixed
 in future versions so that this kind of hack is not needed.
 
+And here is a more complicated version that I came up with to try to fix the
+spelling highlighting so that it uses undercurls. In the end I decided the
+complexity of this approach was not worth the slight visual improvement, but
+I'm saving it here just in case:
+
+```vim
+" The first if-case in the following must be run as an autocommand because
+" every time 'background' changes, Neovim resets the highlight for the
+" spelling back to the default.
+autocmd OptionSet background
+      \   if has('nvim-0.10') && exists('$TERM') && ($TERM ==# 'xterm-kitty' || $TERM ==# 'xterm-256color')
+      \ |   highlight SpellBad   ctermbg=NONE cterm=undercurl
+      \ |   highlight SpellCap   ctermbg=NONE cterm=undercurl
+      \ |   highlight SpellLocal ctermbg=NONE cterm=undercurl
+      \ |   highlight SpellRare  ctermbg=NONE cterm=undercurl
+      \ | elseif &background ==# 'dark'
+      \ |   highlight clear SpellBad
+      \ |   highlight clear SpellCap
+      \ |   highlight clear SpellLocal
+      \ |   highlight clear SpellRare
+      \ |   highlight SpellBad   cterm=underline ctermfg=167 gui=undercurl guifg=#cd5c5c guisp=#cd5c5c
+      \ |   highlight SpellCap   cterm=underline ctermfg=111 gui=undercurl guifg=#75a0ff guisp=#75a0ff
+      \ |   highlight SpellLocal cterm=underline ctermfg=222 gui=undercurl guifg=#ffde9b guisp=#ffde9b
+      \ |   highlight SpellRare  cterm=underline ctermfg=112 gui=undercurl guifg=#9acd32 guisp=#9acd32
+      \ | elseif &background ==# 'light'
+      \ |   highlight clear SpellBad
+      \ |   highlight clear SpellCap
+      \ |   highlight clear SpellLocal
+      \ |   highlight clear SpellRare
+      \ |   highlight SpellBad   term=reverse   ctermbg=224 gui=undercurl guisp=Red
+      \ |   highlight SpellCap   term=reverse   ctermbg=81  gui=undercurl guisp=Blue
+      \ |   highlight SpellLocal term=underline ctermbg=14  gui=undercurl guisp=DarkCyan
+      \ |   highlight SpellRare  term=reverse   ctermbg=225 gui=undercurl guisp=Magenta
+      \ | endif
+      " \ | let &filetype = &filetype
+```
+
 ## Why `set nocompatible`
 
 When Vim detects the presence of a vimrc file, it automatically sets nocompatible.
