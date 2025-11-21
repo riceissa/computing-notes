@@ -410,8 +410,8 @@ for Vim.
 
 This implementation most closely resembles
 https://github.com/nelstrom/vim-visual-star-search which is what I used for
-years, back when I was using lots of plugins. But now I've decided to not
-use any plugins, so as to simplify my Vim configuration. I thought I could
+years, back when I was using lots of plugins. But now I've [decided to not
+use any plugins](#why-no-vim-plugins), so as to simplify my Vim configuration. I thought I could
 just live without visual star search, but I've reached for it on a number of
 occasions, so I decided to try to reimplement it from scratch, referencing
 other implementations but really trying to understand what is going on.
@@ -512,8 +512,8 @@ set nostartofline
 
 ## rsi.vim
 
-These are basically taken from Tim Pope's rsi.vim, but I didn't want to use
-any plugins (which would increase the complexity of my Vim setup), so I just
+These are basically taken from Tim Pope's rsi.vim, but [I didn't want to use
+any plugins](#why-no-vim-plugins), so I just
 reimplemented the subset of mappings that I find particularly useful. See
 also `:help emacs-keys`.
 
@@ -826,6 +826,8 @@ at the start of my vimrc, even though it's not necessary in most variants of Vim
 Starting maybe late 2024, I decided to stop using plugins for Vim. Instead, I
 just have a single vimrc file (currently around 350 lines) with all my
 configuration. Here I talk about some of the reasons I made this switch.
+In short the reason is "because plugins increase the complexity of my Vim setup
+and increase surface area for annoying problems", but in more detail:
 
 - Supply chain attacks. Most Vim plugins are just repos on GitHub that are
   maintained by one person, or sometimes a small group of people. Theoretically
