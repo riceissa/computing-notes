@@ -528,6 +528,8 @@ silent! while 0
   inoremap <C-D> <Del>
   inoremap <C-E> <End>
   inoremap <C-F> <Right>
+  cnoremap <C-F> <Right>
+  cnoremap <C-X><C-E> <C-F>
 silent! endwhile
 if 1
   inoremap <expr> <C-D> col(".") >= col("$") ? "<C-D>" : "<Del>"
@@ -535,6 +537,7 @@ if 1
   inoremap <expr> <C-E> col(".") >= col("$") ? "<C-E>" : "<End>"
   inoremap <expr> <C-F> col(".") >= col("$") ? "<C-F>" : "<Right>"
   cnoremap <expr> <C-F> getcmdpos() > strlen(getcmdline()) ? &cedit : "<Right>"
+  cnoremap <expr> <C-X><C-E> &cedit
 endif
 ```
 
