@@ -823,7 +823,7 @@ at the start of my vimrc, even though it's not necessary in most variants of Vim
 
 ## Why no Vim plugins
 
-Starting maybe late 2024, I decided to stop using plugins for Vim. Instead, I
+Starting in July 2025, I decided to stop using plugins for Vim. Instead, I
 just have a single vimrc file (currently around 350 lines) with all my
 configuration. Here I talk about some of the reasons I made this switch.
 In short the reason is "because plugins increase the complexity of my Vim setup
