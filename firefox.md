@@ -19,6 +19,11 @@ extensions that have a "Recommended" status in Firefox.
 * "Choose your preferred language for displaying pages" → add Japanese to the list. This makes it so that kanji do not use the Chinese variants.
 * "Always ask you where to save files" → change to true
 * "Always show scrollbars" → change to true
+* Turn off popup when selecting text in the PDF viewer:
+  Open `about:config`,
+  search for `pdfjs.enableHighlightFloatingButton`,
+  double click to change the value to `false`.
+  ([Source](https://www.reddit.com/r/firefox/comments/1ovey93/can_i_disable_the_popup_comment_highlight_i_get/))
 
 ## Custom keyword search
 
