@@ -23,6 +23,24 @@ Here's how I've been doing this so far:
 rsync -rcv --dry-run --itemize-changes /older/Music/ /newer/Music/
 ```
 
-Above, `/older/Music/` is the path to the music folder that is probably older, i.e., the folder that you want to copy _from_, and `/newer/Music/` is the music folder that is probably newer, i.e., the music folder that you are copying _to_, the one that is going to become the "master" music collection.
-The trailing `/` in the path is important; it tells rsync to match the folders up and only compare what's inside.
-Without the slash on the source (older), it would try to copy the entire Music folder into the destination, so that you'd end up with `/newer/Music/Music`.
+Above:
+
+- `/older/Music/` is the path to the music folder that is probably older, i.e., the folder that you want to copy _from_.
+- `/newer/Music/` is the music folder that is probably newer, i.e., the music folder that you are copying _to_, the one that is going to become the "master" music collection.
+- The trailing `/` in the path is important; it tells rsync to match the folders up and only compare what's inside.
+  Without the slash on the source (older), it would try to copy the entire Music folder into the destination, so that you'd end up with `/newer/Music/Music`.
+
+The `--dry-run` flag means that rsync will just print out what it _would_ do without actually doing anything.
+This makes it possible to review the changes and possibly make some adjustments.
+The output will have things like:
+
+```
+cd+++++++++
+>f+++++++++
+>f..to.....
+>f..T......
+```
+
+t/T and o generally mean that the owner/timestamps have changed, which I don't really care about since copying stuff to/from Linux and Windows generally destroys permissions anyway (for things where permissions actually matter, follow the steps in the previous section and create a tarball with archival options).
+The ones with the `+++` are actually new files.
+The `-c` flag in rsync means that we identify files based on the file path and a checksum, so it tells rsync that we only care about the contents of the files.
