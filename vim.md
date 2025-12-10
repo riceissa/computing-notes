@@ -19,8 +19,26 @@ Debian-based systems I am used to just typing `vim` to get the clipboard-enabled
 terminal Vim. To fix this, I created a symlink:
 
 ```bash
-sudo ln -sv /usr/bin/vimx /usr/bin/vim
+sudo ln -sv /usr/bin/nvim /usr/local/bin/vim
+# OR:
+sudo ln -sv /usr/bin/vimx /usr/local/bin/vim
 ```
+
+(Previously I symlinked `/usr/bin/vim` to `/usr/bin/nvim`, but this caused problems
+during a `sudo dnf update` one day, where the update hang at the step
+`Running %triggerin scriptlet: vim-common-2:9.1.1952-1.fc43.x86_64`,
+and when I looked at the running processes, I saw
+`/usr/bin/vim -c :helptags /usr/share/vim/vimfiles/doc -c :q`.
+It seems that because dnf saw that `/usr/bin/vim` was a valid
+path on the file system, it somehow assumed that the vim package
+must be installed, and then tried to regenerate the helptags,
+except that `/usr/bin/vim` was actually Neovim, and for some reason
+Neovim couldn't generate the helptags? I'm not quite sure why
+that would cause a problem, but that is my best guess as to what
+caused the update to hang. After talking to Claude, it suggested
+that `/usr/local/bin/vim` would be a better symlink to create,
+so I've now done that. Hopefully this will be the end of my Vim
+woes on Fedora...)
 
 I tried using a Bash alias at first, but this turned out to not work well
 because certain programs don't use Bash aliases so couldn't find a command
