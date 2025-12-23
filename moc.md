@@ -11,13 +11,13 @@ Segmentation fault         (core dumped) mocp
 
 Luckily, Debian [maintains a package for MOC](https://packages.debian.org/search?searchon=names&keywords=moc) and it actually works.
 The only problem is that it's a Debian package, not a Fedora-compatible package.
-So to get MOC working on Fedora 43, I decided to use the Debian-patched source of MOC, and then compile that on Fedora.
+So to get MOC working on Fedora 43, I decided to use the Debian-patched source of MOC and compile that on Fedora.
 This plan ended up working perfectly, so here I record the steps.
 
 ```bash
-# Installs the dget command, which makes it easy to fetch .dsc files from Debian
+# Installs the dget command, which makes it easy to fetch all the source files and
+# automatically apply the Debian patches just by providing a URL to the .dsc file.
 sudo dnf install devscripts
-
 
 # Install dependencies for MOC and other packages that will be needed to compile it.
 # This list was generated with the help of Claude 4.5 Sonnet,
@@ -29,7 +29,7 @@ sudo dnf install gcc make autoconf automake gcc-c++ alsa-lib-devel libdb-devel \
     libcurl-devel flac-devel speex-devel ffmpeg-free-devel libsndfile-devel \
     jack-audio-connection-kit-devel wavpack-devel
 
-# Create a new directory in which to do the compilation
+# Create a new directory in which to download the source files and do the compilation
 mkdir -p ~/Downloads/moc-build
 cd ~/Downloads/moc-build
 
@@ -40,6 +40,8 @@ cd ~/Downloads/moc-build
 # great but I haven't yet figured out how to do the verification.
 dget -u 'https://deb.debian.org/debian/pool/main/m/moc/moc_2.6.0~svn-r3005-6.dsc'
 
+# The previous command should have already unpacked the source archives
+# into a new directory and applied the Debian patches, so we can cd into it:
 cd moc-2.6.0~svn-r3005/
 
 # Make the directory into which we will install MOC
@@ -54,6 +56,10 @@ make install
 # Now for the moment of truth:
 ~/opt/moc/bin/mocp
 
-# If the above worked, you can add that to your PATH:
+# If the above worked, you can add the location to your PATH:
 echo 'PATH="$HOME/opt/moc/bin/:$PATH"' >> ~/.bashrc
+
+# After MOC is in your PATH, once you open a new shell,
+# you should just be able to start MOC like this:
+mocp
 ```
