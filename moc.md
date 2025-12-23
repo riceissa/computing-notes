@@ -42,7 +42,10 @@ dget -u 'https://deb.debian.org/debian/pool/main/m/moc/moc_2.6.0~svn-r3005-6.dsc
 
 cd moc-2.6.0~svn-r3005/
 
+# Make the directory into which we will install MOC
 mkdir -p ~/opt
+
+# Now build and install it
 autoreconf -if
 ./configure --prefix=$HOME/opt/moc
 make
@@ -52,5 +55,5 @@ make install
 ~/opt/moc/bin/mocp
 
 # If the above worked, you can add that to your PATH:
-echo 'PATH=$HOME/opt/moc/bin/:$PATH' >> ~/.bashrc
+echo 'PATH="$HOME/opt/moc/bin/:$PATH"' >> ~/.bashrc
 ```
