@@ -26,7 +26,7 @@ but I didn't need to use this to get what I want.)
 For tar-ing up a whole bunch of directories separately, something like the following works nicely:
 
 ```bash
-for $dir in *; do echo tar -cpzf $dir.tar.gz $dir; done
+for dir in *; do echo tar -cpzf $dir.tar.gz $dir; done
 ```
 
 (Remove the `echo` to actually run the command.)
