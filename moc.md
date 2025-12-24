@@ -22,6 +22,9 @@ sudo dnf install devscripts
 # Install dependencies for MOC and other packages that will be needed to compile it.
 # This list was generated with the help of Claude 4.5 Sonnet,
 # and it is possible that not all of these packages are necessary.
+# However, starting from a default GNOME desktop installation of Fedora 43,
+# installing the following packages is at least *sufficient* in order
+# to get a working build of MOC.
 sudo dnf install gcc make autoconf automake gcc-c++ alsa-lib-devel libdb-devel \
     faad2-devel libid3tag-devel libtool-ltdl-devel libmad-devel file-devel \
     libmodplug-devel musepack-tools ncurses-devel libogg-devel opusfile-devel \
