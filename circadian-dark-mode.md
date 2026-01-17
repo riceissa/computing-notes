@@ -56,10 +56,12 @@ Exec=gsettings set org.gnome.desktop.interface color-scheme 'default'
 Instead of `'default'`, you can also do `'prefer-light'`, but this seems to change the top bar in Gnome to also turn white, which I don't want. Using `'default'` makes applications use light mode but keeps the top bar black, i.e. the same behavior as toggling off the "Dark Style" button from the indicator applet menu in the top right corner.
 
 At this point, we've set up the "master switch" to toggle between light and dark modes.
-For every application, you must then make it follow the OS theme.
+For every application and website, you must now make it follow the OS theme.
 I will cover some of the trickier ones here.
 
 ## Kitty
+
+Run the command from within kitty:
 
 ```bash
 kitten themes
@@ -68,22 +70,22 @@ kitten themes
 Now pick a theme, and then when prompted, say it is for Dark mode, Light mode, or No preference mode.
 Go through the themes picker three times, saving a theme for each mode until kitty knows your preference for each mode.
 In my experience, the Light mode theme is never used; when the Gnome dark mode is enabled, the Dark mode kitty theme is used, and when the Gnome dark mode is disabled, the No preference mode kitty theme is used.
-But it doesn't hurt to have that extra theme set.
+But it doesn't hurt to have the extra theme set.
 
 ## Vim
 
-Neovim does a better job of automatically switching themes.
+Neovim (compared to Vim proper) does a better job of automatically switching themes.
 If you use a supported terminal like kitty, Neovim will change the theme even while it is already running, just like a light/dark-aware GUI application like Firefox.
-Just make sure you don't set to a particular theme or do things like `set background=light`; Neovim can already detect the terminal's background color, so don't force it one way or the other.
-If you prefer a theme that is not the default one, you will need to add an autocommand.
-I won't show that here since it's kind of a subtle issue and leads to other problems; it's best to just use a theme that has light and dark modes built in.
+Just make sure you don't set a particular theme or do things like `set background=light` in your vimrc; Neovim can already detect the terminal's background color, so don't force it one way or the other.
+If you prefer a theme that is not the default one, you will need to add an autocommand to toggle between two different chosen themes.
+I won't show that here since it's kind of a subtle issue and leads to other problems (in particular, it can lead to weird screen flickers when opening Vim, and also the disappearing of italics and bold text in Markdown files...); it's best to just use a theme that already has light and dark modes built in.
 
 Neovim's "background auto-switching while running" feature doesn't work under tmux (in my experience, you need to detach the tmux session, then reattach, and only then will Neovim know what the terminal background color is), so if you care about having light/dark modes switch automatically, I suggest switching to a terminal like kitty and using kitty's native splits.
 
 In Vim proper, there's a bit more work involved.
 On some terminals, the terminal background color is auto-detected.
 But Vim will never automatically switch the theme while running, so you need to quit Vim and reopen it for it to re-detect the terminal background color.
-On kitty, this doesn't work by default, and you will need to add the following:
+On kitty, background color detection doesn't work by default, and you will need to add the following:
 
 ```vim
 let &t_8f = "\e[38:2:%lu:%lu:%lum"
