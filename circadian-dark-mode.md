@@ -57,7 +57,7 @@ Instead of `'default'`, you can also do `'prefer-light'`, but this seems to chan
 
 At this point, we've set up the "master switch" to toggle between light and dark modes.
 For every application and website, you must now make it follow the OS theme.
-I will cover some of the trickier ones here.
+I will cover some of the trickier ones below.
 
 ## Kitty
 
