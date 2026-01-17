@@ -78,7 +78,7 @@ Neovim (compared to Vim proper) does a better job of automatically switching the
 If you use a supported terminal like kitty, Neovim will change the theme even while it is already running, just like a light/dark-aware GUI application like Firefox.
 Just make sure you don't set a particular theme or do things like `set background=light` in your vimrc; Neovim can already detect the terminal's background color, so don't force it one way or the other.
 If you prefer a theme that is not the default one, you will need to add an autocommand to toggle between two different chosen themes.
-I won't show that here since it's kind of a subtle issue and leads to other problems (in particular, it can lead to weird screen flickers when opening Vim, and also the disappearing of italics and bold text in Markdown files...); it's best to just use a theme that already has light and dark modes built in.
+I won't show that here since it's kind of a subtle issue and leads to other problems (in particular, it can lead to weird screen flickers when opening Vim); it's best to just use a theme that already has light and dark modes built in.
 
 Neovim's "background auto-switching while running" feature doesn't work under tmux (in my experience, you need to detach the tmux session, then reattach, and only then will Neovim know what the terminal background color is), so if you care about having light/dark modes switch automatically, I suggest switching to a terminal like kitty and using kitty's native splits.
 
