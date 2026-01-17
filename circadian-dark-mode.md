@@ -29,7 +29,7 @@ crontab -e
 Add the following cronjob:
 
 ```
-0  15 * * * sunwait civ down 47.603889N, 122.33W; gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+0  15 * * * sunwait civ down 47.603889N 122.33W; gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 ```
 
 The given coordinates are for Seattle, where I am located.
