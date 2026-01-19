@@ -21,15 +21,18 @@ Note that there seem to be multiple implementations/forks of the `sunwait` comma
 The command I use below works for the `sunwait` that is packaged with Fedora 43; it might not work with the other versions.
 
 Now we add a cronjob to automatically switch to dark mode at the end of civil twilight (I prefer civil twilight to sunset, because at sunset the sky is still kind of light).
+However, during the summer, civil twilight doesn't end until very late (nearly 10pm at the latest!), so I decided to add a second rule that sets the theme to dark mode at 8pm.
+Then whichever cronjob runs earlier will take effect: in the winter, civil twilight comes first, so dark mode will take effect then, and in the summer, 8pm comes first and dark mode will take effect then.
 
 ```bash
 crontab -e
 ```
 
-Add the following cronjob:
+Add the following cronjobs:
 
 ```
 0  15 * * * sunwait civ down 47.603889N 122.33W; gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+0  20 * * * gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 ```
 
 The given coordinates are for Seattle, where I am located.
