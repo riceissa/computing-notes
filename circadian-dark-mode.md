@@ -35,13 +35,13 @@ Add the following cronjob:
 The given coordinates are for Seattle, where I am located.
 Obviously you should change it to wherever you are located!
 
-For the morning, I decided to add a command to switch to light mode upon logging in.
-This should work on almost every day, since I turn on my computer before sunset/civil twilight almost every day.
+For the morning, I decided to write a short Python script, intended to be run upon logging in, which checks if it is daytime and then switch to light mode if it is.
+This way if I happen to log out and then log back in at night time, it won't switch back to light mode.
 (I thought of adding a cronjob, but I turn off my computer every night, and cronjobs only run if the computer is on at the time of the scheduled job, and how am I supposed to know when I wake up and turn on the computer every morning?)
 
 ```
 mkdir -p ~/.config/autostart
-vim ~/.config/autostart/change-theme-to-light-mode.desktop
+vim ~/.config/autostart/set-theme-on-login.desktop
 ```
 
 Now add the following lines:
@@ -49,11 +49,14 @@ Now add the following lines:
 ```
 [Desktop Entry]
 Type=Application
-Name=Change theme to light mode
-Exec=gsettings set org.gnome.desktop.interface color-scheme 'default'
+Name=Set the correct light or dark theme on login
+Exec=set_light_dark_on_login.py
 ```
 
-Instead of `'default'`, you can also do `'prefer-light'`, but this seems to change the top bar in Gnome to also turn white, which I don't want. Using `'default'` makes applications use light mode but keeps the top bar black, i.e. the same behavior as toggling off the "Dark Style" button from the indicator applet menu in the top right corner.
+To obtain the script `set_light_dark_on_login.py`, go [here](https://github.com/riceissa/dotfiles/blob/master/.local/bin/set_light_dark_on_login.py) and save it somewhere on your computer, and then make sure it is in your `PATH`.
+For simplicity I hardcoded the coordinates in the script, so you should modify that there as well.
+
+In the script, instead of `'default'`, you can also do `'prefer-light'`, but this seems to change the top bar in Gnome to also turn white, which I don't want. Using `'default'` makes applications use light mode but keeps the top bar black, i.e. the same behavior as toggling off the "Dark Style" button from the indicator applet menu in the top right corner.
 
 At this point, we've set up the "master switch" to toggle between light and dark modes.
 For every application and website, you must now make it follow the OS theme.
