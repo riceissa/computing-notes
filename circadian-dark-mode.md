@@ -58,6 +58,8 @@ For simplicity I hardcoded the coordinates in the script, so you should modify t
 
 In the script, instead of `'default'`, you can also do `'prefer-light'`, but this seems to change the top bar in Gnome to also turn white, which I don't want. Using `'default'` makes applications use light mode but keeps the top bar black, i.e. the same behavior as toggling off the "Dark Style" button from the indicator applet menu in the top right corner.
 
+(Side note: it's kind of frustrating that sunwait is written in a way such that all it can do is to wait until the specified time, and then run a command. This works in a cronjob to set the theme to dark, but it doesn't work for logging in! I wish sunwait had a different mode where it could test whether the specified time has happened today or not, and then conditionally run one or the other of two commands. That would eliminate the need for me to write my Python script.)
+
 At this point, we've set up the "master switch" to toggle between light and dark modes.
 For every application and website, you must now make it follow the OS theme.
 I will cover some of the trickier ones below.
