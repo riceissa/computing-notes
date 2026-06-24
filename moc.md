@@ -1,8 +1,9 @@
 # Installing Music on Console on Fedora 43
 
+**NOTE: as of Fedora 44, the version of MOC in RPM Fusion is working again, so the stuff below is only for Fedora 43, or in case MOC breaks again.**
+
 [Music on Console](https://moc.daper.net/) is my favorite music player, but it hasn't had any updates since November 2016.
-Fedora as of version 43 does not have MOC in its default package repository, probably because the upstream hasn't been updated in so long.
-There is a version on RPM Fusion, but at least when I install and run this version, it just dies with:
+Fedora 43 has MOC on RPM Fusion, but when I install and run it, it just dies with:
 
 ```bash
 $ mocp
