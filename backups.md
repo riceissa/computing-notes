@@ -12,11 +12,26 @@ If there is any output, that means that the repo has _something_ (untracked file
 
 If a Git repo needs to be backed up, use the instructions [here](tar.md#moving-a-git-repo-from-one-computer-to-another-while-also-preserving-messy-state-of-directory).
 
+## Copying directories using rsync
+
+This section is for if you want to move a directory from one device to another.
+
+```bash
+rsync -av --dry-run /source/Folder/ /destination/Folder/
+```
+
+A few notes:
+
+- I like using trailing slashes for both source and destination, which means "mirror the source right on to the destination". When the source is missing the slash, rsync will just copy the entire Folder into the destination folder, such that you end up with `/destination/Folder/Folder/`.
+- The `a` flag turns on archival mode, which turns on a lot of other flags like recursive mode, timestamp preservation, permissions preservation, etc.
+- The `v` flag increases verbosity, e.g. I think it will print each thing as it gets copied. I like this so that I know rsync is actually doing stuff instead of getting stuck.
+
 ## Syncing up directories
 
 Let's say I have a folder called `Music` on one of my backup drives, and another folder that is also called `Music` on another backup drive.
 These folders probably started out the same, and in fact one of them may have been the basis of the other.
 It would be nice to merge these two folders so that there is just one master music collection.
+Also, rsync's usual detection of "same file" via combination of filename and timestamps may not work since some of the files maybe previously got copied without preserving timestamps; so using checksums to verify which files are the same or different is necessary.
 Here's how I've been doing this so far:
 
 ```bash
