@@ -34,7 +34,7 @@ Now just fill in the "Manual proxy settings" using `127.0.0.1` (localhost) as th
 
 Then click OK. Try going to a site like https://whatismyipaddress.com/ to verify it worked.
 
-To stop the proxy, just process ctrl-c in the shell. Now if you reload a page in Firefox, you should get a connection error.
+To stop the proxy, just press ctrl-c in the shell. Now if you reload a page in Firefox, you should get a connection error.
 Once the proxy has been stopped, go back into Firefox network settings and switch back to "Use system proxy settings".
 
 ## Windows options
