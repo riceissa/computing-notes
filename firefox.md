@@ -25,6 +25,11 @@ extensions that have a "Recommended" status in Firefox.
   double click to change the value to `false`.
   ([Source](https://www.reddit.com/r/firefox/comments/1ovey93/can_i_disable_the_popup_comment_highlight_i_get/))
 * "Enable link previews" → "Shortcut: Click and hold the link for 1 second (long press)" → change to false
+* On the new page screen:
+  * Right click on bookmarks toolbar → Bookmarks Toolbar → Never show
+  * Click the pencil "Customize" button. Turn off Shortcuts, Widgets, and Stories.
+  * Right click on the top bar → Customize Toolbar → Remove the flexible space on either side of the URL bar, remove the Sidebars thing on the very left, and remove the Account button. When finished, the URL bar should be: (forward) (back) (refresh) (URL bar, taking up all available space) (downloads; only shown when some file has been downloaded during the session) (extensions; looks like a puzzle piece) (ublock origin) (hamburger menu).
+* In the settings search bar, search for "sponsor", and disable all the sponsored things like "sponsored shortcuts", "suggestions from sponsors", and so on.
 
 ## Custom keyword search
 
