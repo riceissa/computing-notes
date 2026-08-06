@@ -19,6 +19,7 @@ extensions that have a "Recommended" status in Firefox.
 * "Choose your preferred language for displaying pages" → add Japanese to the list. This makes it so that kanji do not use the Chinese variants.
 * "Always ask you where to save files" → change to true
 * "Always show scrollbars" → change to true
+* "Show search terms in the address bar on results pages" → uncheck this (turns off the annoying thing where if I do a keyword search, then press Ctrl-l to highlight the address bar, then type a new thing, it just does another search with that keyword search instead of going to the URL I wanted to go to)
 * Turn off popup when selecting text in the PDF viewer:
   Open `about:config`,
   search for `pdfjs.enableHighlightFloatingButton`,
