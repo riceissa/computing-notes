@@ -25,6 +25,11 @@ extensions that have a "Recommended" status in Firefox.
   search for `pdfjs.enableHighlightFloatingButton`,
   double click to change the value to `false`.
   ([Source](https://www.reddit.com/r/firefox/comments/1ovey93/can_i_disable_the_popup_comment_highlight_i_get/))
+* Use old-style (transparent purplish blue) text selection in PDFs:
+  Open `about:config`,
+  search for `pdfjs.enableSelectionRendering`,
+  double click to change the value to `false`.
+  (Source: conversation with Claude Fable 5.)
 * "Enable link previews" → "Shortcut: Click and hold the link for 1 second (long press)" → change to false
 * On the new page screen:
   * Right click on bookmarks toolbar → Bookmarks Toolbar → Never show
