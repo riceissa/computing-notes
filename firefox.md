@@ -36,6 +36,8 @@ extensions that have a "Recommended" status in Firefox.
   * Click the pencil "Customize" button. Turn off Shortcuts, Widgets, and Stories.
   * Right click on the top bar → Customize Toolbar → Remove the flexible space on either side of the URL bar, remove the Sidebars thing on the very left, and remove the Account button. When finished, the URL bar should be: (forward) (back) (refresh) (URL bar, taking up all available space) (downloads; only shown when some file has been downloaded during the session) (extensions; looks like a puzzle piece) (ublock origin) (hamburger menu).
 * In the settings search bar, search for "sponsor", and disable all the sponsored things like "sponsored shortcuts", "suggestions from sponsors", and so on.
+* "Use AI to suggest tabs and a name for tab groups" → change to false
+* "Drag tabs together to create tab groups" → change to false
 
 ## Custom keyword search
 
