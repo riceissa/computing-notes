@@ -17,7 +17,7 @@ If a Git repo needs to be backed up, use the instructions [here](tar.md#moving-a
 This section is for if you want to move a directory from one device to another.
 
 ```bash
-rsync -av --dry-run /source/Folder/ /destination/Folder/
+rsync -avP --dry-run /source/Folder/ /destination/Folder/
 ```
 
 A few notes:
@@ -25,6 +25,7 @@ A few notes:
 - I like using trailing slashes for both source and destination, which means "mirror the source right on to the destination". When the source is missing the slash, rsync will just copy the entire Folder into the destination folder, such that you end up with `/destination/Folder/Folder/`.
 - The `a` flag turns on archival mode, which turns on a lot of other flags like recursive mode, timestamp preservation, permissions preservation, etc.
 - The `v` flag increases verbosity, e.g. I think it will print each thing as it gets copied. I like this so that I know rsync is actually doing stuff instead of getting stuck.
+- The `P` flag keeps partially the progress of partially transferred files, in case the command gets interrupted and needs to be restarted. It also shows the transfer progress.
 
 ## Syncing up directories
 
