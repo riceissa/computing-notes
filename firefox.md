@@ -9,7 +9,6 @@ some sketchy people who then put in spyware). In particular, I only use
 extensions that have a "Recommended" status in Firefox.
 
 * uBlock Origin
-* ClearURLs
 * Video DownloadHelper (usually disabled, but I enable it whenever I want to use it)
 
 ## Settings
