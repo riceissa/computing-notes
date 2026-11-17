@@ -10,6 +10,10 @@ On the computer that has the git repo:
 tar -cvpzf archive.tar.gz directory-name/
 ```
 
+(According to Claude, `-p` does nothing when creating the archive; the
+permissions are always saved when archiving, apparently. But I still like to
+put it there just in case.)
+
 Above, `archive.tar.gz` is supposed to be a new filename; it's the destination.
 On the other hand, `directory-name/` is the existing directory to tar up.
 
