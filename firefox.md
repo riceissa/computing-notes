@@ -48,31 +48,50 @@ The ones with `%s` below can be added via settings, but the ones with `%S` only
 work in the bookmarks (because the input string must _not_ be URL-encoded in order
 to work).
 
-Add these via Settings → Search Shortcuts:
+Add these via Additional search engines → Add search engine:
 
 ```
-!w
+Wikipedia
 https://en.wikipedia.org/w/index.php?search=%s&title=Special%3ASearch
+!w
 
-!a
+Amazon
 https://www.amazon.com/s?k=%s
+!a
 
-!r
+Reddit
 https://www.google.com/search?q=site%3Areddit.com+%s
+!r
 
-!yt
+YouTube
 https://www.youtube.com/results?search_query=%s
+!yt
+
+Brave
+https://search.brave.com/search?q=%s
+(blank keyword; make this the default)
+
+The Free Dictionary
+https://www.thefreedictionary.com/%s
+!d
+
+etymonline
+https://www.etymonline.com/search?q=%s
+!e
 ```
 
 Add these via bookmarks:
 
 ```
-!ia
+Internet Archive
 https://web.archive.org/web/*/%S
+!ia
 
+Internet Archive save
+https://web.archive.org/save/%S
 !ias
-https://web.archive.org/save/%S
 
-!save
+Internet Archive save 2
 https://web.archive.org/save/%S
+!save
 ```
