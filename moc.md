@@ -1,3 +1,26 @@
+# Installing Music on Console on Fedora 45 Workstation
+
+```
+# Enable RPM Fusion; from https://rpmfusion.org/Configuration
+sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+# From https://rpmfusion.org/Howto/Multimedia
+sudo dnf swap ffmpeg-free ffmpeg --allowerasing
+sudo dnf install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+
+sudo dnf install libid3tag libmad libtimidity
+
+# Without the above steps, I was getting problems like MOC being unable to read
+# MP3 metadata and the playback times being off (MOC would think the song had
+# a minute left even though it was over).
+sudo dnf install moc
+
+# Install ~/.moc/config from my dotfiles repo https://github.com/riceissa/dotfiles
+# In particular, the
+#      TiMidity_Config = /etc/timidity.cfg
+# line seems to be required.
+```
+
 # Installing Music on Console on Fedora 43
 
 **NOTE: as of Fedora 44, the version of MOC in RPM Fusion is working again, so the stuff below is only for Fedora 43, or in case MOC breaks again.**
