@@ -1,6 +1,6 @@
 # Installing Music on Console on Fedora 45 Workstation
 
-```
+```bash
 # Enable RPM Fusion; from https://rpmfusion.org/Configuration
 sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
