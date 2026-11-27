@@ -80,6 +80,14 @@ https://www.thefreedictionary.com/%s
 etymonline
 https://www.etymonline.com/search?q=%s
 !e
+
+Google
+https://www.google.com/search?q=%s
+!g
+
+DDG
+https://duckduckgo.com/?q=%s
+!duck
 ```
 
 Add these via bookmarks:
