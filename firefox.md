@@ -15,8 +15,8 @@ extensions that have a "Recommended" status in Firefox.
 
 * "Open previous windows and tabs" → change to true
 * "Ctrl+Tab cycles through tabs in recently used order" → change to true
-* "Choose your preferred language for displaying pages" → add Japanese to the list. This makes it so that kanji do not use the Chinese variants.
-* "Always ask you where to save files" → change to true
+* Website language → Preferred languages → add Japanese to the list. This makes it so that kanji do not use the Chinese variants.
+* "Ask where to save files before downloading" → change to true
 * "Always show scrollbars" → change to true
 * "Show search terms in the address bar on results pages" → uncheck this (turns off the annoying thing where if I do a keyword search, then press Ctrl-l to highlight the address bar, then type a new thing, it just does another search with that keyword search instead of going to the URL I wanted to go to)
 * Turn off popup when selecting text in the PDF viewer:
@@ -34,6 +34,8 @@ extensions that have a "Recommended" status in Firefox.
   * Right click on bookmarks toolbar → Bookmarks Toolbar → Never show
   * Click the pencil "Customize" button. Turn off Shortcuts, Widgets, and Stories.
   * Right click on the top bar → Customize Toolbar → Remove the flexible space on either side of the URL bar, remove the Sidebars thing on the very left, and remove the Account button. When finished, the URL bar should be: (forward) (back) (refresh) (URL bar, taking up all available space) (downloads; only shown when some file has been downloaded during the session) (extensions; looks like a puzzle piece) (ublock origin) (hamburger menu).
+    The Sidebars thing sometimes comes back but removing it the second time seems to get rid of it permanently.
+    Also remove the "Search and manage tabs" thing that shows up on the same row as the tabs.
 * In the settings search bar, search for "sponsor", and disable all the sponsored things like "sponsored shortcuts", "suggestions from sponsors", and so on.
 * "Use AI to suggest tabs and a name for tab groups" → change to false
 * "Drag tabs together to create tab groups" → change to false
