@@ -1,13 +1,9 @@
 # Installing Music on Console on Fedora 45 Workstation
 
+First, follow the [RPM Fusion instructions](rpmfusion.md).
+Then run the following commands:
+
 ```bash
-# Enable RPM Fusion; from https://rpmfusion.org/Configuration
-sudo dnf install https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
-
-# From https://rpmfusion.org/Howto/Multimedia
-sudo dnf swap ffmpeg-free ffmpeg --allowerasing
-sudo dnf install @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
-
 sudo dnf install libid3tag libmad libtimidity
 
 # Without the above steps, I was getting problems like MOC being unable to read
