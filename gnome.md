@@ -22,5 +22,5 @@ gsettings set org.gnome.desktop.interface cursor-size 20
 # Change volume step
 
 ```
-gsettings set org.gnome.settings-daemon.plugins.media-keys volume-step 4
+gsettings set org.gnome.settings-daemon.plugins.media-keys volume-step 3
 ```
